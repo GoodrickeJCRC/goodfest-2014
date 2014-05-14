@@ -37,16 +37,13 @@
   var $splash = $('#splash');
   var player = null;
   var selectedArtist = null;
-  var selectedVideo = null;
+  var selectedVideoIdx = null;
 
   function initVideo() {
+    selectRandomArtist();
+
     if(!$.flash.available)
       return;
-
-    selectRandomArtist();
-    selectArtistVideo();
-
-    console.log("Loading YouTube player");
 
     $('.splash-video').flash({
       id: 'youtubeplayer',
@@ -56,13 +53,15 @@
       wmode: 'transparent'
     });
 
+    // Select a random song and prepare the video container
+    selectedVideoIdx = getRandomArtistVideo();
     updateVideoDimensions();
   }
 
   function calculateDimensions() {
     var ch = $splash.height(),
         cw = $splash.width(),
-        a = selectedVideo.aspect,
+        a = videos[selectedArtist].vids[selectedVideoIdx].aspect,
         h = 0,
         w = 0,
         t = 0,
@@ -91,40 +90,8 @@
     return {width: w, height: h, offset: {left: l, top: t}};
   }
 
-  function getRandomArtist() {
-    var keys = Object.keys(videos)
-    return keys[keys.length * Math.random() << 0];
-  }
-
-  function selectRandomArtist() {
-    selectedArtist = getRandomArtist();
-    $splash.attr('class', 'artist-' + selectedArtist);
-    $('.splash-info-artist').text(videos[selectedArtist].name);
-  }
-
-  function selectArtistVideo() {
-    var availableVideos = videos[selectedArtist].vids;
-    selectedVideo = availableVideos[availableVideos.length * Math.random() << 0];
-
-    $('.splash-info-title').text(selectedVideo.title);
-  }
-
-  window.onYouTubePlayerReady = function(id) {
-    console.log('Playing video for artist: ' + selectedArtist);
-
-    player = $('#youtubeplayer')[0];
-    player.loadVideoById(selectedVideo.id, 0, 'default');
-    player.setVolume(0);
-    //this.control.addClass("fa-volume-up").removeClass("fa-volume-off");
-    player.playVideo();
-    player.addEventListener("onStateChange", "onytplayerStateChange");
-  }
-
   function updateVideoDimensions() {
     var dims = calculateDimensions();
-
-    console.log($splash.find('object'));
-    console.log(dims);
 
     $splash.find('object')
       .width(dims.width)
@@ -132,6 +99,95 @@
       .offset(dims.offset);
   }
 
+  function getOtherArtist() {
+    if(selectedArtist === 'coasts')
+      return 'sonsandlovers';
+
+    return 'coasts';
+  }
+
+  function selectRandomArtist() {
+    var keys = Object.keys(videos);
+    updateArtist(keys[keys.length * Math.random() << 0]);
+  }
+
+  function updateArtist(key) {
+    selectedArtist = key;
+    $splash.attr('class', 'artist-' + selectedArtist);
+    $('[data-bind="artist-name"]').text(videos[selectedArtist].name);
+    $('[data-bind="other-artist-name"]').text(videos[getOtherArtist()].name);
+  }
+
+  function getRandomArtistVideo() {
+    return videos[selectedArtist].vids.length * Math.random() << 0;
+  }
+
+  function playNextVideo() {
+    playVideo((selectedVideoIdx + 1) % videos[selectedArtist].vids.length);
+  }
+
+  function playVideo(idx) {
+    var selectedVideo = videos[selectedArtist].vids[idx];
+    selectedVideoIdx = idx;
+
+    updateVideoDimensions();
+
+    player.loadVideoById(selectedVideo.id, 0, 'default');
+    player.playVideo();
+
+    $('[data-bind="song-title"]').text(selectedVideo.title);
+    $('[data-event="open-yt"]').attr('href', 'http://www.youtube.com/watch?v=' + selectedVideo.id);
+  }
+
+  function muteVideo() {
+    player.setVolume(0);
+    $('.splash-video-mute').addClass('splash-video-muted');
+  }
+
+  function unmuteVideo() {
+    player.setVolume(100);
+    $('.splash-video-mute').removeClass('splash-video-muted');
+  }
+
+  function toggleMute() {
+    if($('.splash-video-mute').hasClass('splash-video-muted')) {
+      unmuteVideo();
+    } else {
+      muteVideo();
+    }
+  }
+
+  window.onYouTubePlayerReady = function(id) {
+    player = $('#youtubeplayer')[0];
+    player.addEventListener('onStateChange', 'onytplayerStateChange');
+    player.setVolume(100);
+
+    playVideo(selectedVideoIdx);
+  }
+
+  window.onytplayerStateChange = function(s) {
+    // On video ended
+    if (s === 0) {
+      playNextVideo();
+    }
+  }
+
+  $('[data-event="next-artist"]').click(function(e) {
+    updateArtist(getOtherArtist());
+    playVideo(getRandomArtistVideo());
+    e.preventDefault();
+  });
+
+  $('[data-event="next-song"]').click(function(e) {
+    playNextVideo();
+    e.preventDefault();
+  });
+
+  $('[data-event="open-yt"]').click(muteVideo);
+  $('.splash-video-mute').click(toggleMute);
+
   $(window).resize(updateVideoDimensions);
+
+  // Initialise video player
   initVideo();
 })();

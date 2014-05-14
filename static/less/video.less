@@ -7,6 +7,18 @@
   height: @splash-height;
   overflow: hidden;
   margin-top: -60px; // TODO: fix!
+
+  &:before {
+    position: absolute;
+    //content: ' ';
+
+    z-index: 1;
+    left: 0; right: 0;
+    bottom: 0;
+    height: 100px;
+
+    background: linear-gradient(to bottom, rgba(212,216,217,0) 0%, rgba(212,216,217,1) 100%);
+  }
 }
 
 .splash-video {
@@ -43,16 +55,30 @@
 .splash-info {
   position: absolute;
   z-index: 1; // show above Flash
-
   bottom: 30px;
-  right: 30px;
 
   color: #fff;
-  text-align: right;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.75);
 
   small { font-style: italic; }
 
-  a, .scroll-down { text-shadow: 1px 1px 0 rgba(0,0,0,0.75); }
+  a {
+    border-bottom: solid 1px rgba(255,255,255,0.7);
+    &:hover { border-bottom: solid 1px rgba(255,255,255,1.0); }
+  }
+
+  p:last-of-type { margin-bottom: 0; }
+
+  a, .scroll-down { text-shadow: inherit; }
+}
+
+.splash-info-left {
+  left: 30px;
+}
+
+.splash-info-right {
+  right: 30px;
+  text-align: right;
 }
 
 .splash-video-mute {
@@ -60,14 +86,16 @@
   z-index: 1;
 
   display: block;
-  padding: 13px;
-  width: 43px; height: 43px;
+  width: 45px; height: 45px;
   right: 30px;
   top: 30px;
 
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 50%;
-  color: #fff;
-  font-size: 17px;
   cursor: pointer;
+
+  background-image: url(/img/volume-control.png);
+  background-size: 90px 45px;
+
+  &.splash-video-muted { background-position: 45px 0; }
 }
