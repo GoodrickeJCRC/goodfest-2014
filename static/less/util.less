@@ -1,0 +1,15 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+// Clearfix
+.cf:before, .cf:after {
+  content: " ";
+  display: table;
+}
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+// Float helpers
+.pull-left { float: left; }
+.pull-right { float: right; }

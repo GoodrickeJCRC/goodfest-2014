@@ -1,0 +1,30 @@
+p {
+  line-height: 1.5em;
+}
+
+a {
+  color: #fff;
+  padding: 0 2px;
+  background-color: #1ABC9C;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+  border-bottom: solid 1px #1ABC9C;
+
+  &:hover, &:focus {
+    background-color: #E74C3C;
+    border-bottom-color: #E74C3C;
+  }
+
+  &.unstyled {
+    color: inherit;
+    background-color: inherit;
+    padding: 0;
+    text-shadow: none;
+    border-bottom: inherit;
+
+    &:hover, &:focus {
+      background-color: inherit;
+      border-bottom: inherit;
+    }
+  }
+}

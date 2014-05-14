@@ -1,0 +1,30 @@
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.1em;
+  color: #666; // the devil is in the detail
+  background-color: #D4D8D9;
+  margin-top: 60px;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+footer {
+  background-color: #ECF0F1;
+  padding: 10px 0;
+
+  .container {
+    position: relative;
+  }
+
+  .uoy-logo {
+    position: absolute;
+    top: 50%; right: 0;
+
+    @img_height: 46px;
+    height: @img_height;
+    margin-top: -@img_height/2;
+  }
+}

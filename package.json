@@ -1,0 +1,26 @@
+{
+  "name": "goodfest-2014",
+  "description": "Front-end for Goodricke College's GoodFest.",
+  "version": "1.0.0",
+  "homepage": "http://goodfest.co.uk",
+  "author": "Goodricke College JCRC",
+  "license": {
+    "type": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License",
+    "url": "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+  },
+  "devDependencies": {
+    "connect": "~2.15.0",
+    "grunt": "~0.4.4",
+    "grunt-autoprefixer": "0.7.3",
+    "grunt-banner": "~0.2.2",
+    "grunt-concurrent": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-imagemin": "~0.7.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-less": "~0.11.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "load-grunt-tasks": "~0.4.0"
+  }
+}
