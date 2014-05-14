@@ -23,11 +23,16 @@
         {
           title: 'Ghosts',
           id: 'y0t4EeRi-hU',
-          aspect: 5/2,
+          aspect: 80/32,
         },
         {
           title: 'Lover',
           id: '4gH9s6YPo_U',
+          aspect: 16/9,
+        },
+        { 
+          title: 'Golden',
+          id: 'FGbD3ROHjhU',
           aspect: 16/9,
         }
       ],
