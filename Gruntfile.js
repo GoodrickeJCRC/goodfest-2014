@@ -29,13 +29,13 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-          'static/js/jquery-2.1.1.js',
-          'static/js/jquery.swfobject.1-1-1.js',
+          'static/js/vendor/jquery-2.1.1.js',
+          'static/js/vendor/jquery.swfobject.1-1-1.js',
           'static/js/site.js',
           'static/js/nav.js',
           'static/js/video.js'
         ],
-        dest: 'dist/js/site.js'
+        dest: 'dist/js/goodfest.js'
       }
     },
 
@@ -49,10 +49,10 @@ module.exports = function(grunt) {
           banner: '<%= banner %>'
         },
         src: '<%= concat.dist.dest %>',
-        dest: 'dist/js/site.min.js'
+        dest: 'dist/js/goodfest.min.js'
       },
       html5shiv: {
-        src: 'static/js/html5shiv.js',
+        src: 'static/js/vendor/html5shiv.js',
         dest: 'dist/js/html5shiv.min.js'
       }
     },
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          src: ['dist/js/site.js']
+          src: ['dist/js/goodfest.js']
         }
       }
     },

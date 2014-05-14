@@ -30,7 +30,7 @@
   }
 
 
-  $(document).on('click', '#header a', function() {
+  $('#header a').on('click', function() {
     var target = $(this).attr('href');
     scrollToElement(target);
 
