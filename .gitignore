@@ -8,4 +8,4 @@ node_modules
 dist
 
 # Sublime Text
-*.sublime-project
+*.sublime-*
