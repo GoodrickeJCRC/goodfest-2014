@@ -40,10 +40,12 @@ section {
     .coloured-section(#1ABC9C, #16A085);
 
     @box_spacing: 10px;
+    @headliner_height: 180px;
+    @headliner_width: 335px;
 
     .row {
       position: relative;
-      height: 240px;
+      height: @headliner_height;
 
       margin: 0 -@box_spacing;
       //margin-bottom: @box_spacing;
@@ -75,13 +77,12 @@ section {
 
       position: absolute;
 
-      @width: 335px;
+      &:nth-of-type(2n) { left: ((@headliner_width - @box_spacing) * 1); }
+      &:nth-of-type(3n) { left: ((@headliner_width - @box_spacing) * 2); }
 
-      &:nth-of-type(2n) { left: ((@width - @box_spacing) * 1); }
-      &:nth-of-type(3n) { left: ((@width - @box_spacing) * 2); }
-
-      width: @width;
-      height: 240px;
+      width: @headliner_width;
+      min-height: @headliner_height;
+      height: @headliner_height;
       padding: 15px 15px 0;
       overflow: hidden;
       font-size: 15px;
