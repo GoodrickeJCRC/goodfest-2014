@@ -1,13 +1,13 @@
 (function() {
   'use strict';
 
+  var $nav = $('nav');
+
   function scrollToElement(target, push_state) {
     //console.log('scrolling to ' + target);
 
     if(typeof push_state === 'undefined')
       push_state = true;
-
-    var $nav = $('nav');
 
     // Animate our page scroll to the target. Once we've scrolled there, set our
     // location hash. We can't do it before otherwise we get a scroll jump before
@@ -16,7 +16,7 @@
       .stop(true, false) // cancel any other scrolls
       .animate({
         scrollTop: $(target).offset().top - $nav.height()
-      }, 100, 'easeInOutCubic', function() {
+      }, 100, function() {
         if(history && history.pushState && push_state && location.hash !== target) {
           //console.log('pushing ' + target);
           history.pushState({}, target.slice(1), target);
@@ -30,12 +30,16 @@
   }
 
 
-  $('nav a').click(function() {
-    var target = $(this).attr('href');
-    scrollToElement(target);
+  function updateNavFixed() {
+    var scrollTop = $(window).scrollTop();
+    var splashBottom = $('#splash').height();
 
-    return false;
-  });
+    if(scrollTop < splashBottom) {
+      $('body').removeClass('fixed-nav');
+    } else {
+      $('body').addClass('fixed-nav');
+    }
+  }
 
 
   function updateActiveNav() {
@@ -82,9 +86,18 @@
   }
 
 
+  $('nav a').click(function() {
+    var target = $(this).attr('href');
+    scrollToElement(target);
+
+    return false;
+  });
+
+
   $(window)
     .on('popstate', onPopState)
     .load(onPopState)
+    .scroll(updateNavFixed)
     .scroll(updateActiveNav);
 
 })();
