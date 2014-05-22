@@ -33,7 +33,8 @@ module.exports = function(grunt) {
           'static/js/vendor/jquery.swfobject.1-1-1.js',
           'static/js/site.js',
           'static/js/nav.js',
-          'static/js/video.js'
+          'static/js/video.js',
+          'static/js/countdown.js'
         ],
         dest: 'dist/js/goodfest.js'
       }

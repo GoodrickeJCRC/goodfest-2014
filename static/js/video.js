@@ -167,8 +167,7 @@
   window.onYouTubePlayerReady = function(id) {
     player = $('#youtubeplayer')[0];
     player.addEventListener('onStateChange', 'onytplayerStateChange');
-    // fix before commit!! Todo
-    player.setVolume(0);
+    player.setVolume(100);
 
     playVideo(selectedVideoIdx);
   }
