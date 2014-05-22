@@ -1,13 +1,13 @@
 (function() {
   'use strict';
 
-  $('.headline').on('click', function() {
+  $('.lineup-headliner').click(function() {
     var $this = $(this);
 
     if($this.hasClass('active')) {
       $this.removeClass('active');
     } else {
-      $('.headline.active').removeClass('active');
+      $('.lineup-headliner.active').removeClass('active');
       $this.addClass('active');
     }
   });

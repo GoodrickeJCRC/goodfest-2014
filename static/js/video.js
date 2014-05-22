@@ -30,7 +30,7 @@
           id: '4gH9s6YPo_U',
           aspect: 16/9,
         },
-        { 
+        {
           title: 'Golden',
           id: 'FGbD3ROHjhU',
           aspect: 16/9,
@@ -49,6 +49,8 @@
 
     if(!$.flash.available)
       return;
+
+    $('body').removeClass('no-flash');
 
     $('.splash-video').flash({
       id: 'youtubeplayer',

@@ -1,13 +1,16 @@
+@import "variables.less";
+
 body {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 19px;
   color: #666;
   background-color: #ECF0F1;
   margin-top: 60px;
+  min-width: @container-width;
 }
 
 .container {
-  width: 960px;
+  width: @container-width;
   margin: 0 auto;
 }
 
@@ -23,8 +26,7 @@ footer {
     position: absolute;
     top: 50%; right: 0;
 
-    @img_height: 46px;
-    height: @img_height;
-    margin-top: (-@img_height / 2);
+    height: @uoy-logo-height;
+    margin-top: (-@uoy-logo-height / 2);
   }
 }

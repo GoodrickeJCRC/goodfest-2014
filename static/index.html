@@ -17,17 +17,19 @@
 	<!--[if lt IE 9]><script type="text/javascript" src="/js/html5shiv.min.js"></script><![endif]-->
 </head>
 
-<body>
-	<section id="splash">
+<body class="no-flash">
+	<section id="splash" class="artist-coasts">
 		<div class="splash-circle-overlay">
-			<div class="splash-artist"></div>
+			GoodFest featuring...
+			<div class="splash-artist" data-bind="artist-name">Coasts</div>
+			Saturday 14th June
 		</div>
 
 		<i class="splash-video-mute"></i>
 
 		<div class="splash-info splash-info-left">
-			<p>Listen to <a href="#" class="unstyled" data-event="next-song">another song by <span data-bind="artist-name">Artist</span></a></p>
-			<p>GoodFest also featuring <a href="#" class="unstyled" data-event="next-artist" data-bind="other-artist-name">P. Diddy</a></p>
+			<p>Listen to <a href="#" class="unstyled" data-event="next-song">another song by <span data-bind="artist-name">Coasts</span></a></p>
+			<p>GoodFest also featuring <a href="#" class="unstyled" data-event="next-artist" data-bind="other-artist-name">Sons &amp; Lovers</a></p>
 		</div>
 
 		<div class="splash-info splash-info-right">
@@ -66,14 +68,14 @@
 		<div class="container">
 			<h1>Line up</h1>
 
-			<div class="row cf">
-				<div class="headline">
+			<div class="lineup-row">
+				<div class="lineup-headliner">
 					<div class="artist-logo">
 						<img src="/img/artists/sonsandlovers-black.png"  alt="Sons &amp; Lovers logo" />
 					</div>
 
 					<p>
-						(Awaiting bio from agent)
+						This unbelievable up-and-coming pop-rock 4-piece will sucker you in with their Bastille-avec-guitars musical stylings spliced with the song-writing prowess of One Republic. Sons &amp; Lovers have an impressive touring record playing with the likes of Kyla La Grange, Of Monsters &amp; Men and none other than global sensation, Ellie Goulding, having also enjoyed festival slots at Reading &amp; Leeds Festival and T in the Park.
 					</p>
 
 					<p>
@@ -81,7 +83,7 @@
 					</p>
 				</div>
 
-				<div class="headline">
+				<div class="lineup-headliner">
 					<div class="artist-logo">
 						<img src="/img/artists/coasts-black.png" alt="Coasts logo" />
 					</div>
@@ -99,7 +101,7 @@
 					</p>
 				</div>
 
-				<div class="headline">
+				<div class="lineup-headliner">
 					<div class="artist-logo">
 						<img src="/img/artists/ystreetband-black.png" alt="The Y Street Band logo" />
 					</div>
@@ -114,8 +116,8 @@
 				</div>
 			</div>
 
-			<div class="row row-last cf">
-				<div class="headline">
+			<div class="lineup-row lineup-row-last">
+				<div class="lineup-headliner">
 					<div class="artist-logo">
 						<img src="/img/artists/sugarking-black.png" alt="Sugarking logo" />
 					</div>
@@ -133,7 +135,7 @@
 					</p>
 				</div>
 
-				<div class="headline">
+				<div class="lineup-headliner">
 					<div class="artist-logo">
 						<img src="/img/artists/boney-black.png" alt="Boney logo" />
 					</div>
@@ -151,7 +153,7 @@
 					</p>
 				</div>
 
-				<div class="headline">
+				<div class="lineup-headliner">
 					<div class="artist-logo">
 						<img src="/img/artists/dandyanddelions-black.png" alt="Dandy and DeLions logo" />
 					</div>
@@ -166,20 +168,20 @@
 				</div>
 			</div>
 
-			<div class="row small-row cf">
-				<div class="column">
+			<div class="lineup-row lineup-small-row">
+				<div class="lineup-column">
 					BEN TRELFER<br />
 					<a href="https://www.facebook.com/ubuntuassemble">UBUNTU</a><br />
 					ZAK FORD<br />
 				</div>
 
-				<div class="column">
+				<div class="lineup-column">
 					YOUNG MACHINE<br />
 					<a href="https://www.facebook.com/GentleRoarBand">GENTLE ROAR</a><br />
 					JOSH WESTWOOD<br />
 				</div>
 
-				<div class="column">
+				<div class="lineup-column">
 					IRIE VIBES<br />
 					STEWART CRANK<br />
 					SCHOOL BANDS<br />
@@ -252,17 +254,17 @@
 			</div>
 
 			<div class="cf">
-				<div class="column">
+				<div class="lineup-column">
 					<iframe src="https://www.google.com/calendar/embed?title=Main%20and%20Small%20Stage%20Acts&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23ECF0F1&amp;src=goodricke.co.uk_g76r4kjpfkqu7bvbje0ap8a12o%40group.calendar.google.com&amp;color=%232F6309&amp;src=goodricke.co.uk_n6asn9d5rt1otinctji1n4qo7s%40group.calendar.google.com&amp;color=%23875509&amp;ctz=Europe%2FLondon" style=" border-width:0 " width="472" height="400"></iframe>
 				</div>
 
-				<div class="column">
+				<div class="lineup-column">
 					<iframe src="https://www.google.com/calendar/embed?title=Other%20Events&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23ECF0F1&amp;src=cal%40goodricke.co.uk&amp;color=%23125A12&amp;src=goodricke.co.uk_rpag6u5gnh3e3hs9nvvipv005k%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=Europe%2FLondon" style=" border-width:0 " width="472" height="400"></iframe>
 				</div>
 			</div>
 
 			<div class="cf">
-				<div class="column">
+				<div class="lineup-column">
 					<p>
 						In the <strong>nucleus</strong> between mid-day and 5pm:
 					</p>
@@ -277,7 +279,7 @@
 					</ul>
 				</div>
 
-				<div class="column">
+				<div class="lineup-column">
 					<p>
 						<strong>Goodricke floor events</strong> between mid-day and 6pm:
 					</p>
@@ -299,7 +301,7 @@
 			<h1>Contact</h1>
 
 			<p>
-				GoodFest is situated in and around Goodricke College on the Heslington East campus. See the highlighted area on aerial shot to the right for specific locations.
+				GoodFest is situated in and around Goodricke College on the Heslington East campus. See the highlighted area on aerial shot to the right for specific location. Also see <a href="http://www.york.ac.uk/colleges/goodricke/directions/">Getting to Goodricke</a> on the University website.
 			</p>
 
 			<p>
