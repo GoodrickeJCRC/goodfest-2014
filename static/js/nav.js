@@ -18,7 +18,6 @@
         scrollTop: $(target).offset().top - $nav.height()
       }, 100, function() {
         if(history && history.pushState && push_state && location.hash !== target) {
-          //console.log('pushing ' + target);
           history.pushState({}, target.slice(1), target);
         }
 
