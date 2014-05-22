@@ -66,21 +66,26 @@
   }
 }
 
-#nav {
-  display: none;
+.fixed-nav #lineup {
+  margin-top: 60px;
+}
 
-  position: fixed;
-  z-index: 1000;
+#nav {
   top: 0;
   left: 0; right: 0;
+  z-index: 2;
 
   background-color: #34495e;
   border-bottom: solid 5px #2c3e50;
   line-height: 55px;
   height: 60px;
 
+  .fixed-nav & {
+    position: fixed;
+  }
+
   img {
-    width: 337px; height: 40px;
+    width: 175px; height: 40px;
     float: left;
     margin-top: 11px;
   }
@@ -101,10 +106,10 @@
       font-size: 24px;
       text-align: center;
 
-      &.lineup { .header-menu-item(#1ABC9C, #16A085); }
-      &.events { .header-menu-item(#3498DB, #2980B9); }
-      &.schedule { .header-menu-item(#E74C3C, #C0392B); }
-      &.contact { .header-menu-item(#E67E22, #D35400); }
+      &.lineup { .header-menu-item(@brand-primary, @brand-primary-darker); }
+      &.events { .header-menu-item(@brand-events, darken(@brand-events, 15%)); }
+      &.schedule { .header-menu-item(@brand-schedule, darken(@brand-schedule, 10%)); }
+      &.contact { .header-menu-item(@brand-contact, darken(@brand-contact, 10%)); }
     }
   }
 }

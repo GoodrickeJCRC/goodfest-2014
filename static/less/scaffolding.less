@@ -3,9 +3,9 @@
 body {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 19px;
-  color: #666;
-  background-color: #ECF0F1;
-  margin-top: 60px;
+  color: @text-color;
+  font-weight: 300;
+  background-color: @bg-primary;
   min-width: @container-width;
 }
 
@@ -15,7 +15,7 @@ body {
 }
 
 footer {
-  background-color: #D4D8D9;
+  background-color: @bg-secondary;
   padding: 10px 0;
 
   .container {
@@ -28,5 +28,7 @@ footer {
 
     height: @uoy-logo-height;
     margin-top: (-@uoy-logo-height / 2);
+
+    img { width: @uoy-logo-width; }
   }
 }

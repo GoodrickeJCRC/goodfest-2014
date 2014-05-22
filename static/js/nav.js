@@ -7,7 +7,7 @@
     if(typeof push_state === 'undefined')
       push_state = true;
 
-    var $header = $('#header');
+    var $nav = $('nav');
 
     // Animate our page scroll to the target. Once we've scrolled there, set our
     // location hash. We can't do it before otherwise we get a scroll jump before
@@ -15,7 +15,7 @@
     $('html, body')
       .stop(true, false) // cancel any other scrolls
       .animate({
-        scrollTop: $(target).offset().top - $header.height()
+        scrollTop: $(target).offset().top - $nav.height()
       }, 100, 'easeInOutCubic', function() {
         if(history && history.pushState && push_state && location.hash !== target) {
           //console.log('pushing ' + target);
@@ -23,14 +23,14 @@
         }
 
         setTimeout(function() {
-          $('#header li').removeClass('active');
-          $('#header a[href^="' + target + '"] li').addClass('active');
+          $('nav li').removeClass('active');
+          $('nav a[href^="' + target + '"] li').addClass('active');
         }, 10);
       });
   }
 
 
-  $('#header a').on('click', function() {
+  $('nav a').click(function() {
     var target = $(this).attr('href');
     scrollToElement(target);
 
@@ -41,12 +41,12 @@
   function updateActiveNav() {
     var cur_dist = 99999;
     var target_nav = null;
-    var scroll_top = $(window).scrollTop() + $('header').height();
+    var scroll_top = $(window).scrollTop() + $('nav').height();
 
     $('section').each(function() {
       var $this = $(this);
       var id = $this.attr('id');
-      var nav = $('#header a[href="#' + id + '"] li');
+      var nav = $('nav a[href="#' + id + '"] li');
 
       // does this section have a link in the nav?
       if(nav.length === 0)
@@ -68,7 +68,7 @@
 
     //console.log('updating active nav to ' + target_nav.parent().attr('href'));
 
-    $('#header li').removeClass('active');
+    $('nav li').removeClass('active');
     target_nav.addClass('active');
   }
 

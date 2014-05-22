@@ -1,16 +1,8 @@
 @import "variables.less";
 
-.coloured-section(@primary, @secondary) {
-  ::selection {
-    background-color: hsla(hue(@primary), saturation(@primary), lightness(@primary), 0.4);
-  }
-
+.coloured-section(@primary) {
   h1 {
     background-color: @primary;
-
-    &::selection {
-      background-color: @secondary;
-    }
   }
 }
 
@@ -36,64 +28,70 @@ section {
     }
   }
 
-  &#countdown { .coloured-section(#95A5A6, #000); }
-
-  &#events {
-    .coloured-section(#3498DB, #2980B9);
-
-    .line {
-      margin: 0;
-      text-transform: uppercase;
-      text-align: center;
-
-      font-size: 1.8em;
-
-      .event {
-        color: #e74c3c;
-        &:nth-child(2n) { color: #1abc9c; }
-      }
-
-      &:nth-of-type(2n) {
-        .event {
-          color: #1abc9c;
-          &:nth-child(2n) { color: #e74c3c; }
-        }
-      }
-    }
-  }
-
-  &#schedule {
-    .coloured-section(#E74C3C, #C0392B);
-
-    .column {
-      display: inline-block;
-      float: left;
-      width: 472px;
-
-      &:first-child {
-        margin-right: 16px;
-      }
-
-      p {
-        margin-top: 0;
-      }
-    }
-  }
-
-  &#contact {
-    .coloured-section(#E67E22, #D35400);
-
-    padding-bottom: 0;
-
-    .container {
-      padding-right: (@aerial-width + 10px);
-      height: @aerial-height;
-
-      background: url(/img/aerial.png) no-repeat right;
-      background-size: @aerial-width @aerial-height;
-    }
-  }
-
   // Striped backgrounds
-  &:nth-of-type(2n) { background-color: #D4D8D9; }
+  &:nth-of-type(2n) { background-color: @bg-secondary; }
+}
+
+#countdown { .coloured-section(@brand-countdown); }
+
+#events {
+  .coloured-section(@brand-events);
+}
+
+.event-list-row {
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+
+  font-size: 1.7em;
+
+  .event-list-item {
+    color: @brand-primary;
+
+    &:after {
+      content: ' \2022';
+      color: @text-color;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+
+    &:nth-child(2n) { color: @brand-primary-darker; }
+  }
+
+  &:nth-of-type(2n) {
+    .event-list-item {
+      color: @brand-primary-darker;
+      &:nth-child(2n) { color: @brand-primary; }
+    }
+  }
+}
+
+#schedule {
+  .coloured-section(@brand-schedule);
+
+  .column {
+    display: inline-block;
+    float: left;
+    width: 472px;
+
+    &:first-child { margin-right: 16px; }
+
+    p { margin-top: 0; }
+  }
+}
+
+#contact {
+  .coloured-section(@brand-contact);
+
+  padding-bottom: 0;
+
+  .container {
+    padding-right: (@aerial-width + 10px);
+    height: @aerial-height;
+
+    background: url(/img/aerial.png) no-repeat right;
+    background-size: @aerial-width @aerial-height;
+  }
 }
