@@ -41,9 +41,17 @@ section {
 .event-list-row {
   margin: 0;
   text-transform: uppercase;
-  text-align: center;
+  text-align: justify;
 
   font-size: 1.7em;
+  height: (@line-height * 1em);
+
+  // Hack to justify line
+  &:after {
+    content: ' ';
+    display: inline-block;
+    width: 100%;
+  }
 
   .event-list-item {
     color: @brand-primary;
